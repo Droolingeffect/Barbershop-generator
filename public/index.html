@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbershop Site Generator</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Landing view: user enters a Google Place ID -->
+  <section id="landing" class="landing">
+    <div class="landing-card">
+      <div class="brand-mark">
+        <span class="brand-stripe red"></span>
+        <span class="brand-stripe white"></span>
+        <span class="brand-stripe blue"></span>
+      </div>
+      <h1>Barbershop Site Generator</h1>
+      <p class="subtitle">
+        Paste a Google Place ID and we'll spin up a clean one-page website
+        with live reviews, hours, and contact info.
+      </p>
+
+      <form id="generate-form" class="generate-form" autocomplete="off">
+        <label for="place-id">Google Place ID</label>
+        <input
+          id="place-id"
+          name="place-id"
+          type="text"
+          placeholder="ChIJp4JiUCNP0xQR1JaSjpW_Hms"
+          value="ChIJp4JiUCNP0xQR1JaSjpW_Hms"
+          required
+        />
+        <button type="submit" id="generate-btn">Generate Site</button>
+      </form>
+
+      <p class="hint">
+        Need a Place ID? Use the
+        <a href="https://developers.google.com/maps/documentation/places/web-service/place-id" target="_blank" rel="noopener">
+          Place ID Finder
+        </a>.
+      </p>
+
+      <div id="form-error" class="form-error" hidden></div>
+    </div>
+  </section>
+
+  <!-- Generated site view -->
+  <main id="site" class="site" hidden>
+    <div class="site-toolbar">
+      <button id="back-btn" class="back-btn" type="button">&larr; Generate another</button>
+      <button id="export-btn" class="export-btn" type="button">&#8681; Export Site</button>
+    </div>
+
+    <header class="hero">
+      <h1 id="biz-name">Loading…</h1>
+      <div class="rating-row">
+        <span id="biz-stars" class="stars"></span>
+        <span id="biz-rating-num" class="rating-num"></span>
+        <span id="biz-review-count" class="review-count"></span>
+      </div>
+      <div class="contact-row">
+        <a id="biz-address" class="contact-link" target="_blank" rel="noopener"></a>
+        <a id="biz-phone" class="contact-link"></a>
+        <a id="biz-website" class="contact-link" target="_blank" rel="noopener" hidden></a>
+      </div>
+    </header>
+
+    <section class="panel hours-panel">
+      <h2>Opening Hours</h2>
+      <ul id="hours-list" class="hours-list"></ul>
+    </section>
+
+    <section class="panel reviews-panel">
+      <h2>What customers say</h2>
+      <div id="reviews-list" class="reviews-list"></div>
+    </section>
+
+    <footer class="powered">
+      Powered by
+      <a href="https://www.google.com/maps" target="_blank" rel="noopener">Google Reviews</a>
+    </footer>
+  </main>
+
+  <div id="loading" class="loading" hidden>
+    <div class="spinner"></div>
+    <p>Fetching business data…</p>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
