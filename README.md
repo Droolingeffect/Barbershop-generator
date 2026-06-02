@@ -1,5 +1,7 @@
 # Barbershop Site Generator
 
+🔗 **Live Demo:** [https://barbershop-generator.vercel.app](https://barbershop-generator.vercel.app)
+
 Generate a clean, mobile-friendly one-page website for any business on Google Maps from just a Place ID. Built for Dubai barbershops but works for anything Google indexes.
 
 ## How it works
